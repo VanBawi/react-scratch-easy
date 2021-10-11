@@ -9,17 +9,18 @@ class ScratchImage extends React.PureComponent {
 		super(props);
 		this.isDrawing = false;
 		this.lastPoint = null;
-		this.showConfirm = false;
+		this.displayConfirm = false;
 		this.touchStart = this.touchStart.bind(this);
 		this.touchMove = this.touchMove.bind(this);
 		this.touchEnd = this.touchEnd.bind(this);
 		this.getFilledInPixels = this.getFilledInPixels.bind(this);
 		this.handlePercentage = this.handlePercentage.bind(this);
 		this.reset = this.reset.bind(this);
+		this.doneScratch = this.doneScratch.bind(this);
 	}
 
 	componentDidMount() {
-		this.setState({ showConfirm: false });
+		this.setState({ displayConfirm: false });
 		const canvas = this.canvas;
 		canvas.width = canvas.parentElement.offsetWidth;
 		canvas.height = canvas.parentElement.offsetHeight;
@@ -150,11 +151,11 @@ class ScratchImage extends React.PureComponent {
 		const percent = this.props.finishPercent;
 		if (percent) {
 			if (filledInPixels > percent) {
-				this.setState({ showConfirm: true });
+				this.setState({ displayConfirm: true });
 			}
 		} else {
 			if (filledInPixels > 35) {
-				this.setState({ showConfirm: true });
+				this.setState({ displayConfirm: true });
 			}
 		}
 	}
@@ -172,6 +173,12 @@ class ScratchImage extends React.PureComponent {
 		}
 		this.cover.onload = () =>
 			this.ctx.drawImage(this.cover, 0, 0, canvas.width, canvas.height);
+	}
+
+	doneScratch() {
+		if (this.props.onComplete) {
+			this.props.onComplete();
+		}
 	}
 
 	render() {
@@ -198,16 +205,20 @@ class ScratchImage extends React.PureComponent {
 					</div>
 				</div>
 				<div style={{ marginTop: '1rem' }}>
-					{this.state && this.state.showConfirm ? (
+					{this.state &&
+					this.state.displayConfirm &&
+					this.props.showResetText ? (
 						<button className={this.props.resetBtn} onClick={this.reset}>
 							{this.props.resetText ? this.props.resetText : 'Reset'}
 						</button>
 					) : null}
-					{this.state && this.state.showConfirm ? (
+					{this.state &&
+					this.state.displayConfirm &&
+					this.props.showConfirmText ? (
 						<button
 							className={this.props.confirmBtn}
 							style={{ marginLeft: '1rem' }}
-							onClick={() => this.props.onComplete()}>
+							onClick={() => this.doneScratch}>
 							{this.props.confirmText ? this.props.confirmText : 'Confirm'}
 						</button>
 					) : null}
