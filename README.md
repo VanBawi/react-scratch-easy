@@ -10,6 +10,8 @@ import { ScratchImage } from 'react-scratch-easy';
 	showConfirmText={true}
 	showResetText={true}
 	finishPercent={35}
+	// onComplete={}
+	//outerImageSrc='image src'
 />;
 ```
 
