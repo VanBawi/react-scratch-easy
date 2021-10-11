@@ -1,5 +1,5 @@
 import './App.css';
-import { ScratchImage } from './lib';
+import { ScratchImage } from 'react-scratch-easy';
 
 function App() {
 	return (

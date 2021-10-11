@@ -1,7 +1,6 @@
 {
 	"name": "react-scratch-easy",
-	"version": "0.1.0",
-	"private": true,
+	"version": "0.1.1",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
 	"keywords": [
@@ -13,14 +12,15 @@
 		"custom scratch"
 	],
 	"dependencies": {
+		"@babel/polyfill": "^7.12.1",
 		"@testing-library/jest-dom": "^5.14.1",
 		"@testing-library/react": "^11.2.7",
 		"@testing-library/user-event": "^12.8.3",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.2",
+		"react-scratch-easy": "^0.1.0",
 		"react-scripts": "4.0.3",
-		"web-vitals": "^1.1.2",
-		"@babel/polyfill": "^7.12.1"
+		"web-vitals": "^1.1.2"
 	},
 	"author": "Jack Van",
 	"license": "MIT",
@@ -50,12 +50,13 @@
 			"last 1 safari version"
 		]
 	},
+	"homepage": "https://github.com/VanBawi/react-scratch-easy#readme",
 	"devDependencies": {
 		"@babel/cli": "^7.15.7",
 		"@babel/core": "^7.15.8",
 		"@babel/preset-env": "^7.15.8",
+		"@babel/preset-react": "^7.14.5",
 		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"@babel/preset-react": "^7.14.5"
+		"react-dom": "^17.0.2"
 	}
 }
