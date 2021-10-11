@@ -1,0 +1,27 @@
+.images-wrapper {
+	width: 300px;
+	height: 300px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.outer-image {
+	position: absolute;
+	width: 100%;
+	height: 300px;
+	left: 0;
+	z-index: 2;
+}
+
+.inner-image {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.inner-image-wh {
+	object-fit: contain;
+	width: 200px;
+	height: 200px;
+}
