@@ -3,7 +3,7 @@
 $ npm install react-scratch-easy
 
 ```js
-import ScratchImage from 'react-scratch-easy';
+import { ScratchImage } from 'react-scratch-easy';
 
 <ScratchImage
 	showReset={true}
